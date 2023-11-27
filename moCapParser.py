@@ -37,7 +37,7 @@ def parseTxtDict(filename, filedata):
 
     nodeline = filedata[0]
     # remove \n at end
-    nodeline = nodeline.strip()
+    #nodeline = nodeline.strip()
 
     if nodeline.lower().startswith('frame'):
         nodes = re.split(r'\t+', nodeline)
@@ -94,6 +94,9 @@ def parseTxtDict(filename, filedata):
 
     txtDict['frames'] = frameList
 
+    import json
+    print("* * * * * * * * * * txtDict: {}".format(json.dumps(txtDict, indent=4)))
+
     return txtDict
 
 def getFrameRange(framesList):
@@ -127,5 +130,7 @@ def getFrameRange(framesList):
             else:
                 previousIndex = currentIndex
                 currentIndex += 1
+
+    print("frames: {}".format(condensedFramerangeList))
 
     return condensedFramerangeList

@@ -17,6 +17,8 @@ import moCapParser
 
 import collections
 
+from MoCapObject import TxtObject
+
 
 class MoCapGui(QMainWindow):
     def __init__(self, parent=None):
@@ -426,6 +428,10 @@ class MoCapGui(QMainWindow):
         self.mainLayout.addLayout(buttonLayout)
 
 if __name__ == '__main__':
+    test = TxtObject("/Users/jstec/git/mocap-parser/0005_2FeetJump001_shortened.txt")
+    #print("* * * * * : {}".format(test.file_content))
+    #test.cleanUpFile()
+    #print(test.file_content)
     app = QApplication(sys.argv)
     gui = MoCapGui()
     gui.show()
